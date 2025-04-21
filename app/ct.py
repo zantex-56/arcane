@@ -28,3 +28,10 @@ def create_ct_base(system, name, path=None):
     print("Starting Container")
     os.system(f"sudo chroot {path} /bin/bash")
     
+def access_ct(path):
+    """
+    Access a CT instance.
+    """
+    if not os.path.exists(path):
+        raise ValueError(f"CT instance {path} does not exist.")
+    os.system(f"sudo chroot {path} /bin/bash")

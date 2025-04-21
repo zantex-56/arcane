@@ -16,6 +16,13 @@ def create(system, name, path):
     Create a new CT instance.
     """
     ct.create_ct_base(system, name, path)
+@cli.command()
+@click.argument('path', type=str)
+def start(path):
+    """
+    Access a CT instance.
+    """
+    ct.access_ct(path)
 
 if __name__ == '__main__':
     cli()   
